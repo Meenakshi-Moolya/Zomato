@@ -1,0 +1,77 @@
+{
+	"locationPopup": {
+		"ANDROID": "className=android.widget.FrameLayout"
+	},	
+	"clickOK": {
+		"ANDROID": "xpath=//*[@text='OK' or @text='ALLOW']"
+	},	
+	"verifyLoginTitle": {
+		"ANDROID": "xpath=//*[@text='Login with Zomato account']"
+	},
+	"emailLogin": {
+		"ANDROID": "xpath=//*[@text='Continue with Email']"
+	},
+	"skiplogin": {
+		"ANDROID": "xpath=//*[@text='I'll log in later']"
+	},
+	"verifyZomatoHomeTitle": {
+		"ANDROID": "xpath=//*[@text='YOUR LOCATION']"
+	},
+	"loginButton": {
+		"ANDROID": "id=submit_button"
+	},
+	"skip" : {
+	    "ANDROID": "xpath=//*[@text='Skip']"
+	},
+	"selectLocation": {
+		"ANDROID": "xpath=//*[@resource-id='com.application.zomato:id/title']"
+	},
+	"enterLocation": {
+		"ANDROID": "xpath=//*[@resource-id='com.application.zomato:id/et_final']"
+	},
+	"selectLocationFromDropDown": {
+		"ANDROID": "xpath=//*[@resource-id='com.application.zomato:id/location_item']"
+	},
+	"search" : {
+	    "ANDROID": "xpath=//*[@text='SEARCH']"
+	},
+	"selectRestaurant": {
+		"ANDROID": "id=category_root"
+	},
+	"notDeliverable": {
+		"ANDROID": "xpath=//*[@text='This restaurant does not deliver here. Change your delivery address.']"
+	},
+	"closedDelivery": {
+		"ANDROID": "xpath=//*[@text='Currently closed for delivery']"
+	},
+	"selectNearbyRestaurant":{
+		"ANDROID": "id=res_info_container"
+	},
+	"selectFoodDelivery":{
+		"ANDROID": "xpath=//*[@text='Looking for food delivery?']"
+	},
+	"scrollToBestsellers":{
+		"ANDROID": "xpath=//*[@text='Bestsellers']"
+	},
+	"clickMenu": {
+		"ANDROID": "id=fab_text"
+	},
+	"clickBestsellers": {
+		"ANDROID": "xpath=//*[@text='Bestsellers']"
+	},
+	"addPizza": {
+		"ANDROID": "xpath=(//*[@text='Add'])[1]"
+	},
+	"addToCart": {
+		"ANDROID": "id=cost_button"
+	},
+	"viewCart": {
+		"ANDROID": "id=tv_view_cart"
+	},
+	"itemDetails": {
+		"ANDROID": "id=item_name"
+	},
+	"itemCost": {
+		"ANDROID": "id=tv_value"
+	}
+}
