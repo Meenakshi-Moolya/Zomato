@@ -22,7 +22,7 @@ public class SupportTest {
 	protected static Logger logger = AppachhiCentral.getLogger();
 	private Configuration conf = null;
 	private IAgent agent;
-	protected Zomato zomato;
+	protected Zomato home;
 	private ITestContext context = null;
 	private String testName = null;
 
@@ -54,7 +54,7 @@ public class SupportTest {
 		agent = AgentFactory.createAgent(this.conf);
 		logger.debug(String.format("Test Method Name Started :: %s", testName));
 		Map<String, String> testData = AppachhiCentral.INSTANCE.getTestData(context, testName);
-		zomato= new Zomato(conf, agent, testData);
+		home = new Zomato(conf, agent, testData);
 		logger.info(String.format("Set up for test method [%s] ended.", testName));
 	}
 
@@ -64,9 +64,6 @@ public class SupportTest {
 		if (ITestResult.FAILURE == result.getStatus()) {
 			agent.takeSnapShot();
 		}
-		// try {
-		// com.appachhi.Logger.Logger.appachhiLogger(this.agent.getWebDriver());
-		// }catch(Exception e) {}
 		agent.quit();
 		logger.info(String.format("Tear down for test method [%s] ended.", testName));
 	}

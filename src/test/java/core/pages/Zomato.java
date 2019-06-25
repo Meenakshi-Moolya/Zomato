@@ -5,9 +5,11 @@ import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 import agent.IAgent;
 import central.Configuration;
+import control.IControl;
 
 public class Zomato extends FullPage {
 
@@ -17,7 +19,8 @@ public class Zomato extends FullPage {
 
 	/**
 	 * This method performs the login action
-	 *
+	 * @return
+	 * @throws Exception
 	 */
 	public Zomato login() throws Exception {
 		enterCredentials();
@@ -26,51 +29,39 @@ public class Zomato extends FullPage {
 
 	/**
 	 * This method performs the sign-up action
-	 *
+	 * @return
+	 * @throws Exception
 	 */
 	public Zomato enterCredentials() throws Exception {
 		getControl("emailLogin").click();
-		Thread.sleep(3000);
-		String text = getControl("verifyLoginTitle").getText();
-		if (text.equals("Login with Zomato account")) {
-			logger.info("Login page title verified");
-		} else {
-			logger.info("Wrong page");
-		}
-
-		List<WebElement> loginControl = driver.findElements(By.className("android.widget.EditText"));
-		loginControl.get(0).sendKeys(getTestData().get("username"));
-		loginControl.get(1).sendKeys(getTestData().get("password"));
+		Assert.assertEquals(getControl("verifyLoginTitle").getText(), getTestData().get("loginTitle"), "Login Page is not displayed");
+		List<IControl> loginControl = getControls("allEditText");
+		loginControl.get(0).enterText(getTestData().get("username"));
+		loginControl.get(1).enterText(getTestData().get("password"));
 		getControl("loginButton").click();
-		Thread.sleep(3000);
 		getControl("skip").click();
-		Thread.sleep(3000);
-		String loginCheck = getControl("verifyZomatoHomeTitle").getText();
-		if (loginCheck.equalsIgnoreCase("YOUR LOCATION")) {
-			logger.info("Logged in Successfully");
-		} else {
-			logger.info("Login Failed");
-		}
-
+		Assert.assertEquals(getControl("verifyZomatoHomeTitle").getText(), getTestData().get("homeTitle"), "Login is failed");
 		return new Zomato(getConfig(), getAgent(), getTestData());
 	}
 
 	/**
-	 * This method performs the sign-up action
-	 *
+	 * This method performs the sign-up action 
+	 * @return
+	 * @throws Exception
 	 */
 	public Zomato selectLocation() throws Exception {
 		getControl("selectLocation").click();
 		getControl("enterLocation").enterText(getTestData().get("enterLocation"));
 		getControl("selectLocationFromDropDown").getText();
 		getControl("selectLocationFromDropDown").click();
-		Thread.sleep(3000);
+
 		return new Zomato(getConfig(), getAgent(), getTestData());
 	}
 
 	/**
 	 * This method implements Restaurant Search method
-	 *
+	 * @return
+	 * @throws Exception
 	 */
 	public Zomato zomatoHomePageSearchRestaurant() throws Exception {
 		searchRestaurants();
@@ -79,67 +70,55 @@ public class Zomato extends FullPage {
 
 	/**
 	 * This method Searches for the restaurants
-	 *
+	 * @throws Exception
 	 */
 	public void searchRestaurants() throws Exception {
 		getControl("search").click();
-		Thread.sleep(3000);
-		List<WebElement> searchControl = driver.findElements(By.className("android.widget.EditText"));
+		List<IControl> searchControl = getControls("allEditText");
 		searchControl.get(0).click();
-		Thread.sleep(3000);
-		searchControl.get(0).sendKeys(getTestData().get("searchRest"));
+		searchControl.get(0).enterText(getTestData().get("searchRest"));
 		getControl("selectRestaurant").click();
-		Thread.sleep(3000);
 	}
 
 	/**
 	 * This method checks for the delivery with the restaurant
-	 *
+	 * @return
+	 * @throws Exception
 	 */
 	public Zomato checkIfRestaurantDeliversFood() throws Exception {
-
 		getControl("selectNearbyRestaurant").click();
-		Thread.sleep(3000);
 		String text = getControl("selectFoodDelivery").getText();
 
 		try {
 			if (text.equalsIgnoreCase("Looking for food delivery?")) {
 				getControl("selectFoodDelivery").click();
-				Thread.sleep(3000);
 				addFoodToCart();
 			}
 		} catch (Exception e) {
 			logger.info("Restaurants Not accepting Orders");
 			this.getAgent().getMobileDriver().quit();
 		}
-		Thread.sleep(1000);
 		return new Zomato(getConfig(), getAgent(), getTestData());
 	}
 
 	/**
-	 * This method add food to the Cart
-	 *
+	 * This method checks for the delivery with the restaurant
+	 * @throws Exception
 	 */
 	public void addFoodToCart() throws Exception {
-
 		getControl("clickMenu").click();
-		Thread.sleep(3000);
 		getControl("clickBestsellers").click();
-		Thread.sleep(3000);
 		getControl("addPizza").click();
-		Thread.sleep(3000);
 		getControl("addToCart").click();
-		Thread.sleep(3000);
 		viewCart();
 	}
 
 	/**
 	 * This method checks for the item in the Cart
-	 *
+	 * @throws Exception
 	 */
 	public void viewCart() throws Exception {
 		getControl("viewCart").click();
-		Thread.sleep(3000);
 		getControl("itemDetails").getText();
 		getControl("itemCost").getText();
 	}

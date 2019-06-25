@@ -20,6 +20,9 @@
 	"loginButton": {
 		"ANDROID": "id=submit_button"
 	},
+	"allEditText": {
+		"ANDROID": "classname=android.widget.EditText"
+	},
 	"skip": {
 		"ANDROID": "xpath=//*[@text='Skip']"
 	},

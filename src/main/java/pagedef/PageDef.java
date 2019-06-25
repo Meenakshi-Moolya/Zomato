@@ -36,11 +36,6 @@ public class PageDef {
 				try {
 					identifier = new Identifier(parts[0].trim(), parts[1].trim());
 				} catch (Exception e) {
-					// Rahul: Invalid locator is provided. Once the json files are all done, an
-					// exception should be raised here.
-					// At this stage if I start removing id placeholders which team has put in JSON
-					// files,
-					// would not be able to focus on refactoring the essential parts.
 					identifier = null;
 				}
 				map.get(elemName).put(platform, identifier);
