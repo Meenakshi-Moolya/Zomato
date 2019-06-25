@@ -1,10 +1,10 @@
 {
 	"locationPopup": {
 		"ANDROID": "className=android.widget.FrameLayout"
-	},	
+	},
 	"clickOK": {
 		"ANDROID": "xpath=//*[@text='OK' or @text='ALLOW']"
-	},	
+	},
 	"verifyLoginTitle": {
 		"ANDROID": "xpath=//*[@text='Login with Zomato account']"
 	},
@@ -15,13 +15,13 @@
 		"ANDROID": "xpath=//*[@text='I'll log in later']"
 	},
 	"verifyZomatoHomeTitle": {
-		"ANDROID": "xpath=//*[@text='YOUR LOCATION']"
+		"ANDROID": "xpath=//*[@resource-id='com.application.zomato:id/header']"
 	},
 	"loginButton": {
 		"ANDROID": "id=submit_button"
 	},
-	"skip" : {
-	    "ANDROID": "xpath=//*[@text='Skip']"
+	"skip": {
+		"ANDROID": "xpath=//*[@text='Skip']"
 	},
 	"selectLocation": {
 		"ANDROID": "xpath=//*[@resource-id='com.application.zomato:id/title']"
@@ -32,11 +32,11 @@
 	"selectLocationFromDropDown": {
 		"ANDROID": "xpath=//*[@resource-id='com.application.zomato:id/location_item']"
 	},
-	"search" : {
-	    "ANDROID": "xpath=//*[@text='SEARCH']"
+	"search": {
+		"ANDROID": "xpath=//*[@text='SEARCH']"
 	},
 	"selectRestaurant": {
-		"ANDROID": "id=category_root"
+		"ANDROID": "xpath=//*[@resource-id='com.application.zomato:id/textContent']"
 	},
 	"notDeliverable": {
 		"ANDROID": "xpath=//*[@text='This restaurant does not deliver here. Change your delivery address.']"
@@ -44,13 +44,13 @@
 	"closedDelivery": {
 		"ANDROID": "xpath=//*[@text='Currently closed for delivery']"
 	},
-	"selectNearbyRestaurant":{
-		"ANDROID": "id=res_info_container"
+	"selectNearbyRestaurant": {
+		"ANDROID": "xpath=(//*[@resource-id='com.application.zomato:id/res_info_container'])[1]"
 	},
-	"selectFoodDelivery":{
-		"ANDROID": "xpath=//*[@text='Looking for food delivery?']"
+	"selectFoodDelivery": {
+		"ANDROID": "xpath=(//*[@resource-id='com.application.zomato:id/title'])[2]"
 	},
-	"scrollToBestsellers":{
+	"scrollToBestsellers": {
 		"ANDROID": "xpath=//*[@text='Bestsellers']"
 	},
 	"clickMenu": {

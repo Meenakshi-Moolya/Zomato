@@ -26,27 +26,27 @@ public class SupportTest {
 	private ITestContext context = null;
 	private String testName = null;
 
-	@BeforeSuite(alwaysRun = false)
+	@BeforeSuite(alwaysRun = true)
 	public void runOncePerSuite() throws Exception {
 		AppachhiCentral.INSTANCE.init();
 		logger = AppachhiCentral.getLogger();
 		logger.info("Central setup completed.");
 	}
 
-	@BeforeTest(alwaysRun = false)
+	@BeforeTest(alwaysRun = true)
 	public void runOncePerContext(ITestContext context) throws Exception {
 		logger.info(String.format("Test context setup started for %s test.", context.getName()));
 		AppachhiCentral.INSTANCE.registerContext(context);
 		logger.info(String.format("Test context setup completed for %s test.", context.getName()));
 	}
 
-	@BeforeClass(alwaysRun = false)
+	@BeforeClass(alwaysRun = true)
 	public void runOncePerClass(ITestContext context) throws Exception {
 		this.context = context;
 		this.conf = AppachhiCentral.INSTANCE.getContextConfig(context);
 	}
 
-	@BeforeMethod(alwaysRun = false)
+	@BeforeMethod(alwaysRun = true)
 	public void runOncePerMethod(ITestContext context, Method method) throws Exception {
 		testName = method.getName();
 		logger.info(String.format("Set up for test method [%s] started.", testName));
@@ -58,7 +58,7 @@ public class SupportTest {
 		logger.info(String.format("Set up for test method [%s] ended.", testName));
 	}
 
-	@AfterMethod(alwaysRun = false)
+	@AfterMethod(alwaysRun = true)
 	public void tearDown(ITestResult result) throws Exception {
 		logger.info(String.format("Tear down for test method [%s] started.", testName));
 		if (ITestResult.FAILURE == result.getStatus()) {
