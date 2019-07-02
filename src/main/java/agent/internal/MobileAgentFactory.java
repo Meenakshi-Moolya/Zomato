@@ -39,7 +39,7 @@ public class MobileAgentFactory {
 		case "IOS_WEB":
 			caps = DesiredCapabilities.safari();
 			break;
-		case"ANDROID":
+		case "ANDROID":
 			caps = DesiredCapabilities.android();
 			break;
 		case "ANDROID_WEB":
@@ -87,7 +87,8 @@ public class MobileAgentFactory {
 		File appFile = new File(System.getProperty("app_file_path"));
 		caps.setCapability("app", appFile.getAbsolutePath());
 		caps.setCapability(MobileCapabilityType.NO_RESET, false);
-//		caps.setCapability(MobileCapabilityType.NO_RESET, config.getValue(ConfigType.NO_RESET));
+		// caps.setCapability(MobileCapabilityType.NO_RESET,
+		// config.getValue(ConfigType.NO_RESET));
 	}
 
 	private static void populatePlatformSpecificCaps(Configuration config, DesiredCapabilities caps) throws Exception {
@@ -104,7 +105,7 @@ public class MobileAgentFactory {
 			caps.setCapability("autoGrantPermissions", true);
 			break;
 		case IOS_WEB:
-			caps.setCapability(MobileCapabilityType.BROWSER_NAME,  System.getProperty("browser"));
+			caps.setCapability(MobileCapabilityType.BROWSER_NAME, System.getProperty("browser"));
 			caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, config.getValue(ConfigType.IOS_AUTOMATION_NAME));
 			caps.setCapability("xcodeConfigFile", "conf/config.xcconfig");
 			caps.setCapability("nativeWebTap", true);// This is for Site Window Pop-up
@@ -114,7 +115,8 @@ public class MobileAgentFactory {
 			populateAppDetails(config, caps);
 			caps.setCapability(MobileCapabilityType.PLATFORM_NAME, Platform.ANDROID);
 			caps.setCapability(MobileCapabilityType.PLATFORM, Platform.ANDROID);
-			//caps.setCapability("unicodeKeyboard", "True");
+			caps.setCapability("unicodeKeyboard", true);
+			caps.setCapability("resetKeyboard", true);
 			String pkg = config.getValue(ConfigType.APP_PACKAGE);
 			caps.setCapability("appPackage", pkg);
 			caps.setCapability("appActivity", String.format(config.getValue(ConfigType.ACTIVITY_MAIN), pkg));
@@ -130,7 +132,7 @@ public class MobileAgentFactory {
 			caps.setCapability(MobileCapabilityType.PLATFORM, Platform.ANDROID);
 			// caps.setCapability(MobileCapabilityType.AUTOMATION_NAME,
 			// config.getValue(ConfigType.ANDROID_AUTOMATION_NAME));
-			caps.setCapability(MobileCapabilityType.BROWSER_NAME, getProperty("browser", config) );
+			caps.setCapability(MobileCapabilityType.BROWSER_NAME, getProperty("browser", config));
 			caps.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, config.getValue(ConfigType.ALERT_BEHAVIOR));
 			caps.setCapability("autoDismissAlerts", true);
 			caps.setCapability("unicodeKeyboard", true);
@@ -141,54 +143,53 @@ public class MobileAgentFactory {
 			throwWrongPlatformException(config);
 		}
 	}
-	
-	
+
 	public static String getProperty(String arg, Configuration config) {
-        String ret_val="";
-        
-        if ( arg.equalsIgnoreCase("appium_url") ) {
-            if ( System.getProperty("appium_url") != null )
-                ret_val=System.getProperty("appium_url");
-            else
-                ret_val=config.getValue(ConfigType.APPIUM_URL);
-        } 
-        
-        if ( arg.equalsIgnoreCase("device_name") ) {
-            if ( System.getProperty("device_name") != null )
-                ret_val=System.getProperty("device_name");
-            else
-                ret_val=config.getValue(ConfigType.DEVICE_NAME);
-        } 
-        
-        if ( arg.equalsIgnoreCase("platform_version") ) {
-            if ( System.getProperty("platform_version") != null )
-                ret_val=System.getProperty("platform_version");
-            else
-                ret_val=config.getValue(ConfigType.PLATFORM_VER);
-        } 
-        
-        if ( arg.equalsIgnoreCase("mobile_udid") ) {
-            if ( System.getProperty("mobile_udid") != null )
-                ret_val=System.getProperty("mobile_udid");
-            else
-                ret_val=config.getValue(ConfigType.UDID);
-        }
-        
-//        if ( arg.equalsIgnoreCase("app_file_path") ) {           It has to include in configuration.java
-//            if ( System.getProperty("app_file_path") != null )
-//                ret_val=System.getProperty("app_file_path");
-//            else
-//                ret_val=config.getValue(ConfigType.UDID);
-//        } 
-        
-        if ( arg.equalsIgnoreCase("browser") ) {
-            if ( System.getProperty("browser") != null )
-                ret_val=System.getProperty("browser");
-            else
-                ret_val=config.getValue(ConfigType.BROWSER);
-        } 
+		String ret_val = "";
 
+		if (arg.equalsIgnoreCase("appium_url")) {
+			if (System.getProperty("appium_url") != null)
+				ret_val = System.getProperty("appium_url");
+			else
+				ret_val = config.getValue(ConfigType.APPIUM_URL);
+		}
 
-        return ret_val;
-    }
+		if (arg.equalsIgnoreCase("device_name")) {
+			if (System.getProperty("device_name") != null)
+				ret_val = System.getProperty("device_name");
+			else
+				ret_val = config.getValue(ConfigType.DEVICE_NAME);
+		}
+
+		if (arg.equalsIgnoreCase("platform_version")) {
+			if (System.getProperty("platform_version") != null)
+				ret_val = System.getProperty("platform_version");
+			else
+				ret_val = config.getValue(ConfigType.PLATFORM_VER);
+		}
+
+		if (arg.equalsIgnoreCase("mobile_udid")) {
+			if (System.getProperty("mobile_udid") != null)
+				ret_val = System.getProperty("mobile_udid");
+			else
+				ret_val = config.getValue(ConfigType.UDID);
+		}
+
+		// if ( arg.equalsIgnoreCase("app_file_path") ) { It has to include in
+		// configuration.java
+		// if ( System.getProperty("app_file_path") != null )
+		// ret_val=System.getProperty("app_file_path");
+		// else
+		// ret_val=config.getValue(ConfigType.UDID);
+		// }
+
+		if (arg.equalsIgnoreCase("browser")) {
+			if (System.getProperty("browser") != null)
+				ret_val = System.getProperty("browser");
+			else
+				ret_val = config.getValue(ConfigType.BROWSER);
+		}
+
+		return ret_val;
+	}
 }

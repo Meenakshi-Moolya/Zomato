@@ -24,7 +24,6 @@ public abstract class Control implements IControl {
 	private IAgent agent = null;
 	private Platform platform = null;
 	private WebElement webElement = null;
-	
 
 	public Control(String name, IPage page, WebElement element) {
 		this.setName(name);
@@ -285,15 +284,5 @@ public abstract class Control implements IControl {
 
 	public void setPlatform(Platform platform) {
 		this.platform = platform;
-	}
-
-	public void pressEnter() throws Exception {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void longPress() throws Exception {
-		// TODO Auto-generated method stub
-		
 	}
 }

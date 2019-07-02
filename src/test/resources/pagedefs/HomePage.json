@@ -1,0 +1,119 @@
+{
+	"clickOnSignInLink": {
+		"ANDROID": "xpath=//android.widget.TextView[@text='Sign In']"
+	},
+	"continueWithEmail": {
+		"ANDROID": "xpath=//*[@resource-id='com.vuclip.viu:id/tvEmailSignup']"
+	},
+	"chooseLanguage": {
+		"ANDROID": "xpath=//*[@resource-id='com.vuclip.viu:id/tv_one']"
+	},
+	"enterEmail": {
+		"ANDROID": "xpath=//android.widget.EditText[@resource-id='com.vuclip.viu:id/edtxtEmail']"
+	},
+	"nextBtn": {
+		"ANDROID": "xpath=//*[@resource-id='com.vuclip.viu:id/btnEmailNext']"
+	},
+	"enterPassword": {
+		"ANDROID": "xpath=//*[@class='android.widget.EditText']"
+	},
+	"signInBtn": {
+		"ANDROID": "xpath=//*[@resource-id='com.vuclip.viu:id/btnSignIn' or @text='Sign up']"
+	},
+	"hamburgerMenu": {
+		"ANDROID": "xpath=//*[@resource-id='com.vuclip.viu:id/iv_menu']"
+	},
+	"viuLogoHomePage": {
+		"ANDROID": "xpath=//*[@resource-id='com.vuclip.viu:id/iv_logo']"
+	},
+	"searchBtn": {
+		"ANDROID": "xpath=//*[@resource-id='com.vuclip.viu:id/iv_search']"
+	},
+	"downloadBtnHomePage": {
+		"ANDROID": "xpath=//*[@resource-id='com.vuclip.viu:id/progressBar']"
+	},
+	"moviesLinkInMenu": {
+		"ANDROID": "xpath=//*[@text='Movies']"
+	},
+	"regionalLink": {
+		"ANDROID": "xpath=//*[@text='Regional']"
+	},
+	"trendingVideoList": {
+		"ANDROID": "xpath=//*[@resource-id='com.vuclip.viu:id/tvTrendingTxt']"
+	},
+	"trendingVideoFrst": {
+		"ANDROID": "xpath=(//*[@resource-id='com.vuclip.viu:id/imgBanner'])[1]"
+	},
+	"trendingSelection": {
+		"ANDROID": "xpath=//*[@resource-id='com.vuclip.viu:id/v_detail_episode_name']"
+	},
+	"enterTextSearchBox": {
+		"ANDROID": "xpath=//*[@resource-id='com.vuclip.viu:id/search_box']"
+	},
+	"clickOnSearchItem": {
+		"ANDROID": "xpath=(//*[@resource-id='com.vuclip.viu:id/imgBanner'])[1]"
+	},
+	"clickOnWatchlistBtn": {
+		"ANDROID": "xpath=//*[@resource-id='com.vuclip.viu:id/imgWatchlist']"
+	},
+	"watchlistPopUPMsg": {
+		"ANDROID": "xpath=//*[@resource-id='com.vuclip.viu:id/tvWatchlistMsg']"
+	},
+	"downloadStart": {
+		"ANDROID": "xpath=//*[@resource-id='com.vuclip.viu:id/iv_download_start']"
+	},
+	"sdQuality": {
+		"ANDROID": "xpath=//*[@resource-id='com.vuclip.viu:id/tv_low']"
+	},
+	"hdQuality": {
+		"ANDROID": "xpath=//*[@resource-id='com.vuclip.viu:id/tv_high']"
+	},
+	"downloadTime": {
+		"ANDROID": "xpath=//*[@resource-id='com.vuclip.viu:id/v_detail_download_time_left']"
+	},
+	"downloadSuccessful": {
+		"ANDROID": "xpath=//*[@contentDescription='SUCCESSFUL' or @resource-id='com.vuclip.viu:id/multi_image_view']"
+	},
+	"closeContentPage": {
+		"ANDROID": "xpath=//*[@resource-id='com.vuclip.viu:id/action_close']"
+	},
+	"downloadIconHomePageDownload": {
+		"ANDROID": "xpath=//*[@resource-id='com.vuclip.viu:id/ivTriangle']"
+	},
+	"deleteVideoDownloaded": {
+		"ANDROID": "xpath=//*[@resource-id='com.vuclip.viu:id/iv_download' or @id='iv_download' or @contentDescription='DOWNLOADING' or @contentDescription='PAUSED']"
+	},
+	"deleteDownloadPopUp": {
+		"ANDROID": "xpath=//*[@text='Delete Download']"
+	},
+	"noDownloadVideoMsg": {
+		"ANDROID": "xpath=//*[@resource-id='com.vuclip.viu:id/empty_download_title']"
+	},
+	"clickDownloadingIcon": {
+		"ANDROID": "xpath=//*[@contentDescription='DOWNLOADING']"
+	},
+	"clickPauseBtn": {
+		"ANDROID": "xpath=//*[@text='Pause']"
+	},
+	"downloadingPausedIcon": {
+		"ANDROID": "xpath=//*[@contentDescription='PAUSED']"
+	},
+	"deleteDownloadAfterPaused": {
+		"ANDROID": "xpath=//*[@text='Delete Download']"
+	},
+	"moviesDropDown": {
+		"ANDROID": "xpath=//*[@resource-id='com.vuclip.viu:id/imgViewArrow']"
+	},
+	"moviesSection": {
+		"ANDROID": "xpath=//*[@text='Romance']"
+	},
+	"selectlanguage": {
+		"ANDROID": "xpath=//*[@resource-id='com.vuclip.viu:id/tv_language']"
+	},
+	"hindiLanguage": {
+		"ANDROID": "xpath=//*[@text='Hindi']"
+	},
+	"selectContentUnderMovie": {
+		"ANDROID": "xpath=(//*[@resource-id='com.vuclip.viu:id/imgBannerLarge'])[1]"
+	}
+}

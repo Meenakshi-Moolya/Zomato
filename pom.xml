@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>zomato</groupId>
-	<artifactId>zomato</artifactId>
+	<groupId>viuMobileApp</groupId>
+	<artifactId>viuMobileApp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Zomato Automation Test Project</name>
-	<description>Zomato Automation Test Project</description>
+	<name>Viu Automation Test Project</name>
+	<description>Viu Automation Test Project</description>
 
 	<properties>
 		<selenium-version>2.53.1</selenium-version>
@@ -19,7 +19,7 @@
 		<maven.build.timestamp.format>yyyy-MM-dd-HH-mm-ss</maven.build.timestamp.format>
 	</properties>
 	<build>
-		<finalName>ZomatoPOC</finalName>
+		<finalName>ArteriaMobileAutomation</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

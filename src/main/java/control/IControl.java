@@ -5,8 +5,6 @@ import java.util.List;
 import org.openqa.selenium.Keys;
 
 public interface IControl {
-
-
 	void click() throws Exception;
 
 	void enterText(String text) throws Exception;
@@ -40,8 +38,4 @@ public interface IControl {
 	List<IControl> getControls(String name) throws Exception;
 	
 	void hover() throws Exception;
-
-	void pressEnter() throws Exception;
-
-	void longPress() throws Exception;
 }

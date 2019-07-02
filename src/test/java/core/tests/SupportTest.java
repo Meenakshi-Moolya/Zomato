@@ -16,15 +16,15 @@ import agent.AgentFactory;
 import agent.IAgent;
 import central.AppachhiCentral;
 import central.Configuration;
-import core.pages.Zomato;
+import core.pages.HomePage;
 
 public class SupportTest {
 	protected static Logger logger = AppachhiCentral.getLogger();
 	private Configuration conf = null;
 	private IAgent agent;
-	protected Zomato home;
 	private ITestContext context = null;
 	private String testName = null;
+	protected HomePage hp;
 
 	@BeforeSuite(alwaysRun = true)
 	public void runOncePerSuite() throws Exception {
@@ -54,7 +54,8 @@ public class SupportTest {
 		agent = AgentFactory.createAgent(this.conf);
 		logger.debug(String.format("Test Method Name Started :: %s", testName));
 		Map<String, String> testData = AppachhiCentral.INSTANCE.getTestData(context, testName);
-		home = new Zomato(conf, agent, testData);
+		// lp= new LoginPage(conf, agent, testData);
+		hp = new HomePage(conf, agent, testData);
 		logger.info(String.format("Set up for test method [%s] ended.", testName));
 	}
 
@@ -64,6 +65,9 @@ public class SupportTest {
 		if (ITestResult.FAILURE == result.getStatus()) {
 			agent.takeSnapShot();
 		}
+		// try {
+		// com.appachhi.Logger.Logger.appachhiLogger(this.agent.getWebDriver());
+		// }catch(Exception e) {}
 		agent.quit();
 		logger.info(String.format("Tear down for test method [%s] ended.", testName));
 	}
